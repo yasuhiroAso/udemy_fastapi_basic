@@ -1,11 +1,25 @@
 from fastapi import APIRouter
+import schemas.contact as cs
+from datetime import datetime
 
 router = APIRouter()
 
 
-@router.get("/contacts")
+@router.get("/contacts", response_model=list[cs.Contact])
 async def get_contact_all():
-    pass
+    dummy_date = datetime.now()
+    return [
+        cs.Contact(
+            id=1,
+            name="yamada",
+            email="test@test.com",
+            url="https://test.com",
+            gender=1,
+            message="テスト",
+            is_enabled=False,
+            created_at=dummy_date,
+        )
+    ]
 
 
 @router.post("/contacts")
