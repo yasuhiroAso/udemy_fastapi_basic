@@ -22,21 +22,21 @@ async def get_contact_all():
     ]
 
 
-@router.post("/contacts")
+@router.post("/contacts", response_model=cs.Contact)
 async def create_contact(body: cs.Contact):
     return cs.Contact(**body.model_dump())
 
 
-@router.get("/contacts/{id}")
-async def get_contact():
-    pass
+@router.get("/contacts/{id}", response_model=cs.Contact)
+async def get_contact(id: int):
+    return cs.Contact(id)
 
 
-@router.put("/contacts/{id}")
-async def update_contact():
-    pass
+@router.put("/contacts/{id}", response_model=cs.Contact)
+async def update_contact(id: int, body: cs.Contact):
+    return cs.Contact(**body.model_dump)
 
 
-@router.delete("/contacts/{id}")
-async def delete_contact():
-    pass
+@router.delete("/contacts/{id}", response_model=cs.Contact)
+async def delete_contact(id: int):
+    return
