@@ -11,7 +11,7 @@ async def get_contact_all():
     return [
         cs.Contact(
             id=1,
-            name="yamada",
+            name="山田",
             email="test@test.com",
             url="https://test.com",
             gender=1,
