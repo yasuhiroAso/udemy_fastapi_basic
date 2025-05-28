@@ -23,6 +23,6 @@ async def update_contact():
     pass
 
 
-@router.delete("/contacts{id}")
+@router.delete("/contacts/{id}")
 async def delete_contact():
     pass
